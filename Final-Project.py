@@ -2,7 +2,7 @@
 Name: Quincy Ji
 CS230: Section 6
 Data: Fast Food Restaurant in the USA
-URL: will be updated in presentation tomorrow
+URL: https://fast-food-fy6sybwasqcm8j4nrmj97g.streamlit.app/
 
 Description: This program allows users to explore fast food restaurant data in the USA through interactive visualizations, including bar charts, tables, and maps.
 Users can filter data by state, city, and category to view the distribution of fast food restaurants and get detailed information.
@@ -136,6 +136,8 @@ st.table(largest_category_table)
 
 #[ST2]Multiselect for cities in selected states
 st.sidebar.subheader("City Filter")
+selected_cities = []
+selected_category = ""
 if selected_states:
     cities_in_selected_states = sorted(data[(data['province'].isin(selected_states))]['city'].unique())
     selected_cities = st.sidebar.multiselect("Select Cities", options=cities_in_selected_states)
